@@ -13,7 +13,7 @@ function preload() {
 }
 
 function setup(){
-    var canvas = createCanvas(1200,400);
+    createCanvas(1200,400);
     engine = Engine.create();
     world = engine.world;
 
@@ -74,4 +74,12 @@ function mouseDragged(){
 
 function mouseReleased(){
     slingshot.fly();
+}
+
+function keyPressed(){
+    if(keyCode === 32){
+        slingshot.attach(bird.body);
+
+        Matter.Body.setPosition(bird.body,{x:200,y:50});
+    }
 }
